@@ -184,4 +184,8 @@ group by
 	pi.score_home_visiting,
 	pi.playdescription;
 
+-- every event for a specific play, so we can trim before the snap and after the play ends
 
+select *
+from ngs
+left join 

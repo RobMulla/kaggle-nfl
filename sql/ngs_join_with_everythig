@@ -1,0 +1,18 @@
+SELECT ngs.*,
+	   vr_injured.
+FROM ngs
+LEFT JOIN play_information pi ON ngs.gamekey = pi.gamekey
+AND ngs.playid = pi.playid
+AND ngs.season_year = pi.season_year
+LEFT JOIN video_review vr_injured ON ngs.gamekey = vr_injured.gamekey
+AND ngs.season_year = vr_injured.season_year
+AND ngs.playid = vr_injured.playid
+AND ngs.gsisid = vr_injured.gsisid
+LEFT JOIN video_review vr_partner ON ngs.gamekey = vr_partner.gamekey
+AND ngs.season_year = vr_partner.season_year
+AND ngs.playid = vr_partner.playid
+AND ngs.gsisid = vr_partner.primary_partner_gsisid
+LEFT JOIN video_footage_control ON ngs.gamekey = video_footage_control.gamekey
+AND ngs.playid = video_footage_control.playid
+AND ngs.season_year = video_footage_control.season
+LEFT JOIN play_player_role_data ON LIMIT 5;

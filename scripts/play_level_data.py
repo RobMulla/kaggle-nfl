@@ -21,121 +21,196 @@ pi = pd.read_csv('../input/play_information.csv')
 
 all_dfs = [ppd, gd, pprd, vr, vfi, pi]
 for mydf in all_dfs:
-        mydf.columns = [col.lower() for col in mydf.columns]
+    mydf.columns = [col.lower() for col in mydf.columns]
 
-NGS_csv_files = ['NGS-2016-post.csv',
-        'NGS-2016-pre.csv',
-        'NGS-2016-reg-wk1-6.csv',
-        'NGS-2016-reg-wk13-17.csv',
-        'NGS-2016-reg-wk7-12.csv',
-        'NGS-2017-post.csv',
-        'NGS-2017-pre.csv',
-        'NGS-2017-reg-wk1-6.csv',
-        'NGS-2017-reg-wk13-17.csv',
-        'NGS-2017-reg-wk7-12.csv',
-        ]
+# 'NGS-2016-post.csv',
+NGS_csv_files = [
+                 'NGS-2016-pre.csv',
+                 'NGS-2016-reg-wk1-6.csv',
+                 'NGS-2016-reg-wk13-17.csv',
+                 'NGS-2016-reg-wk7-12.csv',
+                 'NGS-2017-post.csv',
+                 'NGS-2017-pre.csv',
+                 'NGS-2017-reg-wk1-6.csv',
+                 'NGS-2017-reg-wk13-17.csv',
+                 'NGS-2017-reg-wk7-12.csv',
+                 ]
 
 ppd_unique = ppd.groupby('gsisid').agg(lambda x: ', '.join(x)).reset_index()
 
 # Detailed role info
 # I made this myself and may include errors require me to rerun later
 role_info_dict = {'GL': ['Gunner', 'Punting_Team'],
-             'GLi': ['Gunner', 'Punting_Team'],
-             'GLo': ['Gunner', 'Punting_Team'],
-             'GR': ['Gunner', 'Punting_Team'],
-             'GRi': ['Gunner', 'Punting_Team'],
-             'GRo': ['Gunner', 'Punting_Team'],
-             'P': ['Punter', 'Punting_Team'],
-             'PC': ['Punter_Protector', 'Punting_Team'],
-             'PPR': ['Punter_Protector', 'Punting_Team'],
-             'PPRi': ['Punter_Protector', 'Punting_Team'],
-             'PPRo': ['Punter_Protector', 'Punting_Team'],
-             'PDL1': ['Defensive_Lineman', 'Returning_Team'],
-             'PDL2': ['Defensive_Lineman', 'Returning_Team'],
-             'PDL3': ['Defensive_Lineman', 'Returning_Team'],
-             'PDR1': ['Defensive_Lineman', 'Returning_Team'],
-             'PDR2': ['Defensive_Lineman', 'Returning_Team'],
-             'PDR3': ['Defensive_Lineman', 'Returning_Team'],
-             'PDL5': ['Defensive_Lineman', 'Returning_Team'],
-             'PDL6': ['Defensive_Lineman', 'Returning_Team'],
-             'PFB': ['PuntFullBack', 'Punting_Team'],
-             'PLG': ['Punting_Lineman', 'Punting_Team'],
-             'PLL': ['Defensive_Backer', 'Returning_Team'],
-             'PLL1': ['Defensive_Backer', 'Returning_Team'],
-             'PLL3': ['Defensive_Backer', 'Returning_Team'],
-             'PLS': ['Punting_Longsnapper', 'Punting_Team'],
-             'PLT': ['Punting_Lineman', 'Punting_Team'],
-             'PLW': ['Punting_Wing', 'Punting_Team'],
-             'PRW': ['Punting_Wing', 'Punting_Team'],
-             'PR': ['Punt_Returner', 'Returning_Team'],
-             'PRG': ['Punting_Lineman', 'Punting_Team'],
-             'PRT': ['Punting_Lineman', 'Punting_Team'],
-             'VLo': ['Jammer', 'Returning_Team'],
-             'VR': ['Jammer', 'Returning_Team'],
-             'VL': ['Jammer', 'Returning_Team'],
-             'VRo': ['Jammer', 'Returning_Team'],
-             'VRi': ['Jammer', 'Returning_Team'],
-             'VLi': ['Jammer', 'Returning_Team'],
-             'PPL': ['Punter_Protector', 'Punting_Team'],
-             'PPLo': ['Punter_Protector', 'Punting_Team'],
-             'PPLi': ['Punter_Protector', 'Punting_Team'],
-             'PLR': ['Defensive_Backer', 'Returning_Team'],
-             'PRRo': ['Defensive_Backer', 'Returning_Team'],
-             'PDL4': ['Defensive_Lineman', 'Returning_Team'],
-             'PDR4': ['Defensive_Lineman', 'Returning_Team'],
-             'PLM': ['Defensive_Backer', 'Returning_Team'],
-             'PLM1': ['Defensive_Backer', 'Returning_Team'],
-             'PLR1': ['Defensive_Backer', 'Returning_Team'],
-             'PLR2': ['Defensive_Backer', 'Returning_Team'],
-             'PLR3': ['Defensive_Backer', 'Returning_Team'],
-             'PLL2': ['Defensive_Backer', 'Returning_Team'],
-             'PDM': ['Defensive_Lineman', 'Returning_Team'],
-             'PDR5': ['Defensive_Lineman', 'Returning_Team'],
-             'PDR6': ['Defensive_Lineman', 'Returning_Team'],
-             }
+                  'GLi': ['Gunner', 'Punting_Team'],
+                  'GLo': ['Gunner', 'Punting_Team'],
+                  'GR': ['Gunner', 'Punting_Team'],
+                  'GRi': ['Gunner', 'Punting_Team'],
+                  'GRo': ['Gunner', 'Punting_Team'],
+                  'P': ['Punter', 'Punting_Team'],
+                  'PC': ['Punter_Protector', 'Punting_Team'],
+                  'PPR': ['Punter_Protector', 'Punting_Team'],
+                  'PPRi': ['Punter_Protector', 'Punting_Team'],
+                  'PPRo': ['Punter_Protector', 'Punting_Team'],
+                  'PDL1': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDL2': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDL3': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDR1': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDR2': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDR3': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDL5': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDL6': ['Defensive_Lineman', 'Returning_Team'],
+                  'PFB': ['PuntFullBack', 'Punting_Team'],
+                  'PLG': ['Punting_Lineman', 'Punting_Team'],
+                  'PLL': ['Defensive_Backer', 'Returning_Team'],
+                  'PLL1': ['Defensive_Backer', 'Returning_Team'],
+                  'PLL3': ['Defensive_Backer', 'Returning_Team'],
+                  'PLS': ['Punting_Longsnapper', 'Punting_Team'],
+                  'PLT': ['Punting_Lineman', 'Punting_Team'],
+                  'PLW': ['Punting_Wing', 'Punting_Team'],
+                  'PRW': ['Punting_Wing', 'Punting_Team'],
+                  'PR': ['Punt_Returner', 'Returning_Team'],
+                  'PRG': ['Punting_Lineman', 'Punting_Team'],
+                  'PRT': ['Punting_Lineman', 'Punting_Team'],
+                  'VLo': ['Jammer', 'Returning_Team'],
+                  'VR': ['Jammer', 'Returning_Team'],
+                  'VL': ['Jammer', 'Returning_Team'],
+                  'VRo': ['Jammer', 'Returning_Team'],
+                  'VRi': ['Jammer', 'Returning_Team'],
+                  'VLi': ['Jammer', 'Returning_Team'],
+                  'PPL': ['Punter_Protector', 'Punting_Team'],
+                  'PPLo': ['Punter_Protector', 'Punting_Team'],
+                  'PPLi': ['Punter_Protector', 'Punting_Team'],
+                  'PLR': ['Defensive_Backer', 'Returning_Team'],
+                  'PRRo': ['Defensive_Backer', 'Returning_Team'],
+                  'PDL4': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDR4': ['Defensive_Lineman', 'Returning_Team'],
+                  'PLM': ['Defensive_Backer', 'Returning_Team'],
+                  'PLM1': ['Defensive_Backer', 'Returning_Team'],
+                  'PLR1': ['Defensive_Backer', 'Returning_Team'],
+                  'PLR2': ['Defensive_Backer', 'Returning_Team'],
+                  'PLR3': ['Defensive_Backer', 'Returning_Team'],
+                  'PLL2': ['Defensive_Backer', 'Returning_Team'],
+                  'PDM': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDR5': ['Defensive_Lineman', 'Returning_Team'],
+                  'PDR6': ['Defensive_Lineman', 'Returning_Team'],
+                  }
 
 role_info = pd.DataFrame.from_dict(role_info_dict,
-				   orient='index',
-			           columns=['generalized_role','punting_returning_team']) \
-                                           .reset_index() \
-                                           .rename(columns={'index' : 'role'})
+                                   orient='index',
+                                   columns=['generalized_role', 'punting_returning_team']) \
+    .reset_index() \
+    .rename(columns={'index': 'role'})
 
 pprd_detailed = pd.merge(pprd, role_info, how='left', on='role')
 
-for ngs_file in tqdm(NGS_csv_files):
+play_count = 0
+for ngs_file in NGS_csv_files:
     # Loop through each file so that we save space
     ngs = pd.read_csv('../input/{}'.format(ngs_file))
     ngs.columns = [col.lower() for col in ngs.columns]
 
-    ## groupby and loop through play
-    grouped = ngs.groupby(['season_year','gamekey','playid'])
+    # groupby and loop through play
+    grouped = ngs.groupby(['season_year', 'gamekey', 'playid'])
     count = 0
-    for i, df in grouped:
-        count += 1
-        print(i)
-        rows_before = len(df)
+    for s_gk_pid, df in grouped:
+        try:
+            play_count += 1
+            print('========RUNNING FOR PLAY NUMBER {} =============='.format(play_count))
+            count += 1
+            print('Running for season year gamekey playid: {}'.format(s_gk_pid))
+            try:
+                print(pd.merge(df, pi)['playdescription'].values[0])
+            except:
+                print('No play info')
+                with open("broke_plays.txt", "a") as myfile:
+                    myfile.write("NO PLAY INFO {} \n".format(s_gk_pid))
+                continue
+            rows_before = len(df)
 
-        # Merge possible player jersey number and position
-        df = pd.merge(df, ppd_unique, how='left', on='gsisid')
-        if len(df) != rows_before:
-            raise 'Shape has changed! This is not right'
+            # Merge possible player jersey number and position
+            df = pd.merge(df, ppd_unique, how='left', on='gsisid')
+            if len(df) != rows_before:
+                raise 'Shape has changed! This is not right'
 
-        # Merge player punt role. Drop any player that does not have a role in the play
-        # This includes players on sideline who are captured on the field during the play
-        df = pd.merge(df, pprd_detailed, on=['season_year','gamekey','playid','gsisid'], how='inner')
+            # Merge player punt role. Drop any player that does not have a role in the play
+            # This includes players on sideline who are captured on the field during the play
+            df = pd.merge(df, pprd_detailed,
+                          on=['season_year', 'gamekey', 'playid', 'gsisid'], how='inner')
 
-        df = pd.merge(df ,vr, on=['season_year','gamekey','playid'], how='left')
+            df = pd.merge(df, vr, on=['season_year', 'gamekey', 'playid'],
+                          how='left', suffixes=('', '_injured'))
 
-        # Get all events and the event times within the play
-        events = df.groupby(['event','time'])
-        for i, d in events:
-            df[i[0]] = i[1] # Save event as column with time of event
+            # Get all events and the event times within the play
+            events = df.groupby(['event', 'time'])
+            for event, d in events:
+                df[event[0]] = event[1]  # Save event as column with time of event
 
-        df.to_csv('../working/playlevel/all_data/{}-{}-{}.csv'.format(i[0], i[1], i[2]),
-                 index=False)
-        if count == 10:
-            break
+            df['mph'] = df['dis'] * 20.4545455  # miles per hour
+            df['injured_player'] = df.apply(
+                lambda row: True if row['gsisid'] == row['gsisid_injured'] else False, axis=1)
+            df['primary_partner_player'] = df.apply(
+                lambda row: True if row['gsisid'] == row['primary_partner_gsisid'] else False, axis=1)
+
+            # Find out if play is left to right - or right to left
+            try:
+                punt_returner_x_at_snap = df.loc[(df['role'] == 'PR') & (df['event'] == 'ball_snap')]['x'].values[0]
+                long_snapper_x_at_snap = df.loc[(df['role'] == 'PLS') & (df['event'] == 'ball_snap')]['x'].values[0]
+                if punt_returner_x_at_snap < long_snapper_x_at_snap:
+                    df['left_to_right'] = False
+                else:
+                    df['left_to_right'] = True
+            except:
+                df['left_to_right'] = np.nan
+                with open("broke_plays.txt", "a") as myfile:
+                    myfile.write("COULDNT DETERMINE LEFT TO RIGHT {} \n".format(s_gk_pid))
+            # Join play information
+            # Comment out because uncessary
+            # df = pd.merge(df, pi, on=['season_year',
+            #               'gamekey', 'playid'], how='left')
+
+            df.to_csv('../working/playlevel/all_data/{}-{}-{}.csv'.format(s_gk_pid[0], s_gk_pid[1], s_gk_pid[2]),
+                      index=False)
+
+            ##############################################
+            # Cut off from start of play to end of play
+            ##############################################
+
+            # Only keep time within the play that matters
+            print(df['event'].unique())
+
+            if len(df.loc[df['event'] == 'ball_snap']['time'].values) == 0:
+                print('........No Snap for this play')
+                ball_snap_time = df['time'].min()
+            else:
+                ball_snap_time = df.loc[df['event'] == 'ball_snap']['time'].values.min()
+
+            try:
+                end_time = df.loc[(df['event'] == 'out_of_bounds') |
+                                  (df['event'] == 'downed') |
+                                  (df['event'] == 'tackle') |
+                                  (df['event'] == 'punt_downed') |
+                                  (df['event'] == 'fair_catch') |
+                                  (df['event'] == 'touchback') |
+                                  (df['event'] == 'touchdown')]['time'].values.max()
+            except ValueError:
+                print('.......No end to play')
+                end_time = df['time'].values.max()
+                with open("broke_plays.txt", "a") as myfile:
+                    myfile.write("NO END TO THE PLAY {} \n".format(s_gk_pid))
+
+            df = df.loc[(df['time'] >= ball_snap_time) & (df['time'] <= end_time)]
+
+            if len(df) == 0:
+                print('BROKE FOR {}'.format(s_gk_pid))
+            else:
+                df.to_csv('../working/playlevel/during_play/{}-{}-{}.csv'.format(
+                    s_gk_pid[0], s_gk_pid[1], s_gk_pid[2]))
+        except:
+            print('It broke for this one.............')
+            with open("broke_plays.txt", "a") as myfile:
+                myfile.write("BROKE SOMEHWERE ELSE {} \n".format(s_gk_pid))
+
     # Remove data from memory
     del ngs
     gc.collect()
-    break
+    # break

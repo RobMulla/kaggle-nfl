@@ -1,49 +1,49 @@
-Season_Year,GameKey,PlayID,GSISID,Player_Activity_Derived,Turnover_Related,Primary_Impact_Type,Primary_Partner_GSISID,Primary_Partner_Activity_Derived,Friendly_Fire,Returned,Multiple Players Around Injury,Returner Change Direction,Players Curled Back to Follow PR,Fair Catch,Muffed,Injury Type,
-2016,5,3129,31057,Tackling,No,Helmet-to-body,32482,Tackled,No,,,,,,,,
-2016,21,2587,29343,Blocked,No,Helmet-to-helmet,31059,Blocking,No,,,,,,,,
-2016,29,538,31023,Tackling,No,Helmet-to-body,31941,Tackled,No,,,,,,,,
-2016,45,1212,33121,Tackling,No,Helmet-to-body,28249,Tackled,No,,,,,,,,
-2016,54,1045,32444,Blocked,No,Helmet-to-body,31756,Blocked,Yes,,,,,,,,
-2016,60,905,30786,Blocking,No,Helmet-to-helmet,29815,Blocked,No,,,,,,,,
-2016,144,2342,32410,Blocking,No,Helmet-to-body,23259,Blocked,No,,,,,,,,
-2016,149,3663,28128,Blocking,No,Helmet-to-body,29629,Blocked,No,,,,,,,,
-2016,189,3509,27595,Tackled,No,Helmet-to-helmet,31950,Tackling,No,,,,,,,,
-2016,218,3468,28987,Blocked,No,Helmet-to-ground,,,,,,,,,,,
-2016,231,1976,32214,Blocked,No,Helmet-to-helmet,32807,Blocked,Yes,,,,,,,,
-2016,234,3278,28620,Tackling,No,Helmet-to-body,27860,Tackled,No,,,,,,,,
-2016,266,2902,23564,Tackled,No,Helmet-to-body,31844,Tackling,No,,,,,,,,
-2016,274,3609,23742,Tackled,No,Helmet-to-helmet,31785,Tackling,No,,,,,,,,
-2016,280,2918,32120,Blocking,No,Helmet-to-body,32725,Blocked,No,,,,,,,,
-2016,280,3746,27654,Tackling,No,Helmet-to-helmet,33127,Tackled,No,,,,,,,,
-2016,281,1526,28987,Blocked,No,Helmet-to-body,30789,Tackling,Yes,,,,,,,,
-2016,289,2341,32007,Blocked,No,Helmet-to-helmet,32998,Blocking,No,,,,,,,,
-2016,296,2667,32783,Tackling,No,Helmet-to-helmet,32810,Tackling,Yes,,,,,,,,
-2017,357,3630,30171,Tackling,No,Helmet-to-body,29384,Tackled,No,,,,,,,,
-2017,364,2489,31313,Blocked,No,Helmet-to-helmet,32851,Blocking,No,,,,,,,,Not Clear when injury happened
-2017,364,2764,32323,Blocked,No,Helmet-to-helmet,31930,Blocking,No,Y,N,N,Y,N,N,,Blinesided defender when looking at PR
-2017,384,183,33813,Tackling,No,Helmet-to-body,33841,Tackling,Yes,Y,Y,N,N,N,N,,Direct contact with PR on return
-2017,392,1088,32615,Blocked,No,Helmet-to-body,31999,Blocking,No,Y,N,Y,Y,N,N,,Players curling back and injured defender chasing PR
-2017,397,1526,32894,Tackling,No,Helmet-to-helmet,31763,Tackled,No,Y,Y,N,N,N,N,,Returner tackled by 3 defenders one gets hurt
-2017,399,3312,26035,Tackled,No,Helmet-to-body,27442,Tackling,No,Y,Y,N,N,N,N,,Multiple tacklers on Punt returner one knocks into PR on tackle
-2017,414,1262,33941,Tackling,No,Helmet-to-ground,,,,Y,N,N,Y â€“ but not a factor,N,N,,Defender misses tackle and hits head on ground
-2017,448,2792,33838,Blocking,No,Helmet-to-body,31317,Blocked,No,Y,N,N,Y,N,N,,Curling back to make play defender gets popped near sideline
-2017,473,2072,29492,Tackling,No,Helmet-to-body,33445,Tackling,Yes,Y,N,N,N,N,N,,Punt returner moving forward. Defenders collide with eachother behind returner after missing tackles
-2017,506,1988,27060,Tackled,No,Helmet-to-helmet,,Tackling,No,Y,Y,N,,Y but let bounce,N,,"Calls for fair catch, lets it bounce and picks up after bounce. Hit right after picking up."
-2017,553,1683,32820,Blocking,No,Helmet-to-helmet,25503,Blocked,No,Y,N,Y,Y,N,N,,"Brutal hit, player coming back to catch PR"
-2017,567,1407,32403,Blocking,No,Helmet-to-helmet,32891,Blocked,No,Y,N,Y,N,N,N,,Returner goes backwards players collide in front of where caught
-2017,585,2208,33069,Tackled,No,Helmet-to-helmet,24535,Tackling,No,Y,N,N,Y,N,N,,Returner runs back along sideline gets popped during return
-2017,585,733,30384,Blocked,No,Unclear,,Unclear,Unclear,Y,Y,N,Y,N,N,,Defender curling back to catch PR gets popped by sideline
-2017,601,602,33260,Tackling,No,Helmet-to-helmet,31697,Tackled,No,Y,Y,N,N,N,N,,Defender ran up and got knocked by PR directly
-2017,607,978,29793,Blocking,No,Helmet-to-helmet,32114,Blocked,No,N,N,N,N,Y,Y,,"Fair catch, muffed, but injury occurred by two linemen. Right after snap"
-2017,618,2792,31950,Tackling,No,Helmet-to-body,32677,Blocking,No,Y,Y,Y,Y,N,N,,PR ran towards sideline two players hit eachother near where he steps out of bounds.
-,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,
-,,,,,,,,,,,,,,,,,
-,,,,,,,,,,Injury Type Ideas,,,,,,,
-,,,,,,,,,,PR Direct Contact with Defender,,,,,,,
-,,,,,,,,,,Defender Curling Back to Catch PR,,,,,,,
-,,,,,,,,,,Fluke,,,,,,,
-,,,,,,,,,,Defensive Friendly Fire Trying to Tackle PR,,,,,,,
+Season_Year,GameKey,PlayID,GSISID,Player_Activity_Derived,Turnover_Related,Primary_Impact_Type,Primary_Partner_GSISID,Primary_Partner_Activity_Derived,Friendly_Fire,Returned,Multiple Players Around Injury,Returner Change Direction,Players Curled Back to Follow PR,Fair Catch,Muffed,Downed,Injury Type,,
+2016,5,3129,31057,Tackling,No,Helmet-to-body,32482,Tackled,No,Y,N,Y,N,N,N,,Direct hit on Punt Returner,Punt returner hit by sideline. Tackler hit head,0     0
+2016,21,2587,29343,Blocked,No,Helmet-to-helmet,31059,Blocking,No,N,Y,N,N,N,N,Y,Coverage Player hit before Punt Caught,"Ball downed, coverage player popped while engaged with different defender.",1     0
+2016,29,538,31023,Tackling,No,Helmet-to-body,31941,Tackled,No,N,N,N,N,N,Y,N,Direct hit on Punt Returner,"Punt returner popped as soon as catches the ball, defender hurt hed",2     2
+2016,45,1212,33121,Tackling,No,Helmet-to-body,28249,Tackled,No,Y,Y,Y,Y,N,N,N,Long Return – Defender hit Punter,"Punt returner breaks down right sideline, tackled from behind player who is tackling injured",3     1
+2016,54,1045,32444,Blocked,No,Helmet-to-body,31756,Blocked,Yes,Y,Y,Y,Y,N,N,N,Coverage Player Hit while Tracking Returner,Defender blindsided when tracking returner curling back,4     1
+2016,60,905,30786,Blocking,No,Helmet-to-helmet,29815,Blocked,No,Y,N,N,N,N,N,N,Near Line of Scrimmage,Player injured when engaged with defender right after kick,5     0
+2016,144,2342,32410,Blocking,No,Helmet-to-body,23259,Blocked,No,Y,?,,,,,,Not Clear,Can’t see on film what happens,6     1
+2016,149,3663,28128,Blocking,No,Helmet-to-body,29629,Blocked,No,Y,Y,Y,N,N,N,,Protector Hit,Punt return protector engaged with defender and gets hit by other player coming downfield.,7     2
+2016,189,3509,27595,Tackled,No,Helmet-to-helmet,31950,Tackling,No,Y,Y,N,N,N,N,,Direct hit on Punt Returner,Returner dodges first tackler and gets popped by defender a few yards after catch,8     0
+2016,218,3468,28987,Blocked,No,Helmet-to-ground,,,,Y,Y,Y,N,N,N,,Fluke/Fall,Coverage player gets caught up running upfield and hits head on ground during fall.,9     0
+2016,231,1976,32214,Blocked,No,Helmet-to-helmet,32807,Blocked,Yes,Y,Y,Y,Y,N,Y,,Coverage Player in persuit of PR,Punting team trying to follow back to PR and gets popped by own player who was being blocked into him.,10    2
+2016,234,3278,28620,Tackling,No,Helmet-to-body,27860,Tackled,No,N,N,N,,N,N,,Direct hit on Punt Returner,"Punt about to be downed, punt returner trying to pick it up and immeately gets hit by punting team player who hits with helpment",11    1
+2016,266,2902,23564,Tackled,No,Helmet-to-body,31844,Tackling,No,Y/N,N,N,N,N,Y,,Direct hit on Punt Returner,Punt returner popped as soon as he catches ball by gunner – penalty,12    2
+2016,274,3609,23742,Tackled,No,Helmet-to-helmet,31785,Tackling,No,N,N,N,N,N,N,,Fluke/Fall,TRICK PLAY – punter gets blinesided by returning team on trick play run,13    3
+2016,280,2918,32120,Blocking,No,Helmet-to-body,32725,Blocked,No,N,N,N,N,N,N,,Near Line of Scrimmage,Two linemen colliding right after snap.,14    2
+2016,280,3746,27654,Tackling,No,Helmet-to-helmet,33127,Tackled,No,Y,N,N,N,N,Y,,Direct hit on Punt Returner,"Punt nearly muffed, picked up and popped blindsided by gunner",15    3
+2016,281,1526,28987,Blocked,No,Helmet-to-body,30789,Tackling,Yes,,,,,,,,Not Clear,Can’t see where it occurs. NGS Data isn’t the same as vide?,16    3
+2016,289,2341,32007,Blocked,No,Helmet-to-helmet,32998,Blocking,No,Y,Y,N,Y,N,N,,Coverage Player hit in persuit,"Gunner cut inside, blindsided be defensiveplayer when coming back to make the tackle",17    3
+2016,296,2667,32783,Tackling,No,Helmet-to-helmet,32810,Tackling,Yes,Y,N,N,N,N,N,,Friendly Fire Gunners,Gunners both tackle returner and hit eachother in head.,18    3
+2017,357,3630,30171,Tackling,No,Helmet-to-body,29384,Tackled,No,Y,N,N,N,N,N,,Direct hit on Punt Returner,Returner catches and returns going forward D lineman comes from side to tackle,19    3
+2017,364,2489,31313,Blocked,No,Helmet-to-helmet,32851,Blocking,No,,,,,,,,,Not Clear when injury happened,20    2
+2017,364,2764,32323,Blocked,No,Helmet-to-helmet,31930,Blocking,No,Y,N,N,Y,N,N,,Coverage Player hit in persuit,Blinesided defender when looking at PR,21    2
+2017,384,183,33813,Tackling,No,Helmet-to-body,33841,Tackling,Yes,Y,Y,N,N,N,N,,Direct hit on Punt Returner,Direct contact with PR on return,22    2
+2017,392,1088,32615,Blocked,No,Helmet-to-body,31999,Blocking,No,Y,N,Y,Y,N,N,,Coverage Player hit in persuit,Players curling back and injured defender chasing PR,23    1
+2017,397,1526,32894,Tackling,No,Helmet-to-helmet,31763,Tackled,No,Y,Y,N,N,N,N,,Direct hit on Punt Returner,Returner tackled by 3 defenders one gets hurt,24    0
+2017,399,3312,26035,Tackled,No,Helmet-to-body,27442,Tackling,No,Y,Y,N,N,N,N,,Direct hit on Punt Returner,Multiple tacklers on Punt returner one knocks into PR on tackle,25    0
+2017,414,1262,33941,Tackling,No,Helmet-to-ground,,,,Y,N,N,Y – but not a factor,N,N,,Fluke,Defender misses tackle and hits head on ground,26    2
+2017,448,2792,33838,Blocking,No,Helmet-to-body,31317,Blocked,No,Y,N,N,Y,N,N,,Coverage Player hit in persuit,Curling back to make play defender gets popped near sideline,27    1
+2017,473,2072,29492,Tackling,No,Helmet-to-body,33445,Tackling,Yes,Y,N,N,N,N,N,,Friendly Fire,Punt returner moving forward. Defenders collide with eachother behind returner after missing tackles,28    1
+2017,506,1988,27060,Tackled,No,Helmet-to-helmet,,Tackling,No,Y,Y,N,,Y but let bounce,N,,Direct hit on Punt Returner,"Calls for fair catch, lets it bounce and picks up after bounce. Hit right after picking up.",29    1
+2017,553,1683,32820,Blocking,No,Helmet-to-helmet,25503,Blocked,No,Y,N,Y,Y,N,N,,Coverage Player hit in persuit,"Brutal hit, player coming back to catch PR",30    0
+2017,567,1407,32403,Blocking,No,Helmet-to-helmet,32891,Blocked,No,Y,N,Y,N,N,N,,,Returner goes backwards players collide in front of where caught,31    2
+2017,585,2208,33069,Tackled,No,Helmet-to-helmet,24535,Tackling,No,Y,N,N,Y,N,N,,Direct hit on Punt Returner,Returner runs back along sideline gets popped during return,32    1
+2017,585,733,30384,Blocked,No,Unclear,,Unclear,Unclear,Y,Y,N,Y,N,N,,Coverage Player hit in persuit,Defender curling back to catch PR gets popped by sideline,33    0
+2017,601,602,33260,Tackling,No,Helmet-to-helmet,31697,Tackled,No,Y,Y,N,N,N,N,,Direct hit on Punt Returner,Defender ran up and got knocked by PR directly,34    3
+2017,607,978,29793,Blocking,No,Helmet-to-helmet,32114,Blocked,No,N,N,N,N,Y,Y,,Near Line of Scrimmage,"Fair catch, muffed, but injury occurred by two linemen. Right after snap",35    3
+2017,618,2792,31950,Tackling,No,Helmet-to-body,32677,Blocking,No,Y,Y,Y,Y,N,N,,,PR ran towards sideline two players hit eachother near where he steps out of bounds.,36    3
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,Injury Type Ideas,,,,,,,,,
+,,,,,,,,,,PR Direct Contact with Defender,,,,,,,,,
+,,,,,,,,,,Defender Curling Back to Catch PR,,,,,,,,,
+,,,,,,,,,,Fluke,,,,,,,,,
+,,,,,,,,,,Defensive Friendly Fire Trying to Tackle PR,,,,,,,,,

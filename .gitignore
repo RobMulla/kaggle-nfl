@@ -108,3 +108,4 @@ venv.bak/
 *.parquet
 
 .DS_Store
+*.tar.gz

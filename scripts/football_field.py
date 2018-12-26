@@ -1,7 +1,9 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
-def create_football_field(linenumbers=True, endzones=True):
+def create_football_field(linenumbers=True, endzones=True, highlight_line=False,
+                          highlight_line_number=50,
+                          highlighted_name='Line of Scrimmage'):
     rect = patches.Rectangle((0, 0), 120, 53.3, linewidth=0.1, edgecolor='r', facecolor='darkgreen', zorder=0)
     fig, ax = plt.subplots(1, figsize=(12.0, 6.33))
     ax.add_patch(rect)
@@ -14,9 +16,17 @@ def create_football_field(linenumbers=True, endzones=True):
     # Endzones
     if endzones:
         ez1 = patches.Rectangle((0, 0), 10, 53.3,
-                                linewidth=0.1, edgecolor='r', facecolor='blue', alpha=0.2, zorder=0)
+                                linewidth=0.1,
+                                edgecolor='r',
+                                facecolor='blue',
+                                alpha=0.2,
+                                zorder=0)
         ez2 = patches.Rectangle((110, 0), 120, 53.3,
-                                linewidth=0.1, edgecolor='r', facecolor='blue', alpha=0.2, zorder=0)
+                                linewidth=0.1,
+                                edgecolor='r',
+                                facecolor='blue',
+                                alpha=0.2,
+                                zorder=0)
         ax.add_patch(ez1)
         ax.add_patch(ez2)
     plt.xlim(0, 120)
@@ -33,9 +43,21 @@ def create_football_field(linenumbers=True, endzones=True):
                 plt.text(x - 0.95, 53.3 - 5, str(numb - 10),
                          horizontalalignment='center',
                          fontsize=20, fontname='Arial', color='white', rotation=180)
-    for x in range(11, 110):
+    if endzones:
+        ticks_range = range(11, 110)
+    else:
+        ticks_range = range(1, 120)
+
+    for x in ticks_range:
         plt.plot([x, x], [0, 1], color='white')
         plt.plot([x, x], [53.3, 52.3], color='white')
         plt.plot([x, x], [18.5, 19.5], color='white')
         plt.plot([x, x], [34.8, 35.8], color='white')
+
+    if highlight_line:
+        hl = highlight_line_number + 10
+        plt.plot([hl, hl], [0, 53.3], color='yellow')
+        plt.text(hl+2, 50, '<- {}'.format(highlighted_name),
+                color='yellow')
+
     return fig, ax

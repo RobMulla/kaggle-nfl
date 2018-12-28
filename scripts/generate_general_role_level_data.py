@@ -34,5 +34,6 @@ for i, d in role_info.groupby('generalized_role'):
             count += 1
         print('Saving Generalized Role to Parquet')
         role_df_all.to_parquet('../working/general_role/{}.parquet'.format(i))
-    except:
+    except Exception as e:
         print('broke for {}'.format(i))
+        print('exception is: {}'.format(e))

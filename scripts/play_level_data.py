@@ -2,10 +2,6 @@
 # Go through NGS data and get info like events, etc.
 import pandas as pd
 import numpy as np
-from tqdm import tqdm
-
-import linecache
-import os
 import tracemalloc
 import gc
 
@@ -25,16 +21,16 @@ for mydf in all_dfs:
 
 # 'NGS-2016-post.csv',
 NGS_csv_files = [
-                 'NGS-2016-pre.csv',
-                 'NGS-2016-reg-wk1-6.csv',
-                 'NGS-2016-reg-wk13-17.csv',
-                 'NGS-2016-reg-wk7-12.csv',
-                 'NGS-2017-post.csv',
-                 'NGS-2017-pre.csv',
-                 'NGS-2017-reg-wk1-6.csv',
-                 'NGS-2017-reg-wk13-17.csv',
-                 'NGS-2017-reg-wk7-12.csv',
-                 ]
+    'NGS-2016-pre.csv',
+    'NGS-2016-reg-wk1-6.csv',
+    'NGS-2016-reg-wk13-17.csv',
+    'NGS-2016-reg-wk7-12.csv',
+    'NGS-2017-post.csv',
+    'NGS-2017-pre.csv',
+    'NGS-2017-reg-wk1-6.csv',
+    'NGS-2017-reg-wk13-17.csv',
+    'NGS-2017-reg-wk7-12.csv',
+]
 
 ppd_unique = ppd.groupby('gsisid').agg(lambda x: ', '.join(x)).reset_index()
 
@@ -120,8 +116,9 @@ for ngs_file in NGS_csv_files:
             print('Running for season year gamekey playid: {}'.format(s_gk_pid))
             try:
                 print(pd.merge(df, pi)['playdescription'].values[0])
-            except:
+            except Exception as e:
                 print('No play info')
+                print('exception {}'.format(e))
                 with open("broke_plays.txt", "a") as myfile:
                     myfile.write("NO PLAY INFO {} \n".format(s_gk_pid))
                 continue
@@ -159,7 +156,7 @@ for ngs_file in NGS_csv_files:
                     df['left_to_right'] = False
                 else:
                     df['left_to_right'] = True
-            except:
+            except Exception as e:
                 df['left_to_right'] = np.nan
                 with open("broke_plays.txt", "a") as myfile:
                     myfile.write("COULDNT DETERMINE LEFT TO RIGHT {} \n".format(s_gk_pid))
@@ -205,7 +202,7 @@ for ngs_file in NGS_csv_files:
             else:
                 df.to_csv('../working/playlevel/during_play/{}-{}-{}.csv'.format(
                     s_gk_pid[0], s_gk_pid[1], s_gk_pid[2]))
-        except:
+        except Exception as e:
             print('It broke for this one.............')
             with open("broke_plays.txt", "a") as myfile:
                 myfile.write("BROKE SOMEHWERE ELSE {} \n".format(s_gk_pid))

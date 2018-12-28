@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 
+
 def create_football_field(linenumbers=True, endzones=True, highlight_line=False,
                           highlight_line_number=50,
                           highlighted_name='Line of Scrimmage'):
@@ -34,15 +35,15 @@ def create_football_field(linenumbers=True, endzones=True, highlight_line=False,
     plt.axis('off')
     if linenumbers:
         for x in range(20, 110, 10):
-                numb = x
-                if x > 50:
-                    numb = 120 - x
-                plt.text(x, 5, str(numb - 10),
-                         horizontalalignment='center',
-                         fontsize=20, fontname='Arial', color='white')
-                plt.text(x - 0.95, 53.3 - 5, str(numb - 10),
-                         horizontalalignment='center',
-                         fontsize=20, fontname='Arial', color='white', rotation=180)
+            numb = x
+            if x > 50:
+                numb = 120 - x
+            plt.text(x, 5, str(numb - 10),
+                     horizontalalignment='center',
+                     fontsize=20, fontname='Arial', color='white')
+            plt.text(x - 0.95, 53.3 - 5, str(numb - 10),
+                     horizontalalignment='center',
+                     fontsize=20, fontname='Arial', color='white', rotation=180)
     if endzones:
         ticks_range = range(11, 110)
     else:
@@ -57,7 +58,7 @@ def create_football_field(linenumbers=True, endzones=True, highlight_line=False,
     if highlight_line:
         hl = highlight_line_number + 10
         plt.plot([hl, hl], [0, 53.3], color='yellow')
-        plt.text(hl+2, 50, '<- {}'.format(highlighted_name),
-                color='yellow')
+        plt.text(hl + 2, 50, '<- {}'.format(highlighted_name),
+                 color='yellow')
 
     return fig, ax

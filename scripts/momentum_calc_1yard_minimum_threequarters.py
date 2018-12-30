@@ -102,8 +102,8 @@ def calculate_3_closest(play):
 
 pi = pd.read_csv('../input/play_information.csv')
 
-# Make backwards
-pi = pi.iloc[::-1]
+# Make start half of the way in
+pi = pi.iloc[3500:]
 
 for row in tqdm(pi.iterrows()):
     start = timer()
@@ -117,6 +117,7 @@ for row in tqdm(pi.iterrows()):
         if exists:
             print('Results already exist... skipping')
             continue
+
         play = pd.read_csv('../working/playlevel/all_data/{}-{}-{}.csv'.format(year,
                                                                                   gamekey,
                                                                                   playid))

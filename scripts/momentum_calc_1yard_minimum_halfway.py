@@ -3,6 +3,7 @@ import math
 import numpy as np
 from timeit import default_timer as timer
 from tqdm import tqdm
+import os
 
 pd.options.display.max_columns = 100
 
@@ -101,8 +102,8 @@ def calculate_3_closest(play):
 
 pi = pd.read_csv('../input/play_information.csv')
 
-# Make backwards
-pi = pi.iloc[2331:]
+# Make start 1/4 of the way in
+pi = pi.iloc[1666:]
 
 for row in tqdm(pi.iterrows()):
     start = timer()
@@ -112,6 +113,11 @@ for row in tqdm(pi.iterrows()):
 
     print('Running for {} {} {}'.format(year, gamekey, playid))
     try:
+        exists = os.path.isfile('../working/playlevel/momentum/min1yard/{}-{}-{}-lessthan1y.csv'.format(year, gamekey, playid))
+        if exists:
+            print('Results already exist... skipping')
+            continue
+
         play = pd.read_csv('../working/playlevel/all_data/{}-{}-{}.csv'.format(year,
                                                                                   gamekey,
                                                                                   playid))

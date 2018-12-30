@@ -40,10 +40,12 @@ def create_football_field(linenumbers=True, endzones=True, highlight_line=False,
                 numb = 120 - x
             plt.text(x, 5, str(numb - 10),
                      horizontalalignment='center',
-                     fontsize=20, fontname='Arial', color='white')
+                     fontsize=20, # fontname='Arial',
+                     color='white')
             plt.text(x - 0.95, 53.3 - 5, str(numb - 10),
                      horizontalalignment='center',
-                     fontsize=20, fontname='Arial', color='white', rotation=180)
+                     fontsize=20, # fontname='Arial',
+                     color='white', rotation=180)
     if endzones:
         ticks_range = range(11, 110)
     else:

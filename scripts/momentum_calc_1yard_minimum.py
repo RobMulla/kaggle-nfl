@@ -7,6 +7,10 @@ import os
 
 pd.options.display.max_columns = 100
 
+def touch(fname, times=None):
+        with open(fname, 'a'):
+                    os.utime(fname, times)
+
 
 def calculateDistance(x1, y1, x2, y2):
     dist = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
@@ -115,6 +119,12 @@ for row in tqdm(pi.iterrows()):
         if exists:
             print('Results already exist... skipping')
             continue
+        temp_exists = os.path.isfile('../working/playlevel/momentum/min1yard/{}-{}-{}-lessthan1y.temp'.format(year, gamekey, playid))
+        if temp_exists:
+            print('another worker is processing... skipping')
+            continue
+
+        touch('../working/playlevel/momentum/min1yard/{}-{}-{}-lessthan1y.temp'.format(year, gamekey, playid))
 
         play = pd.read_csv('../working/playlevel/all_data/{}-{}-{}.csv'.format(year,
                                                                                   gamekey,
@@ -135,6 +145,10 @@ for row in tqdm(pi.iterrows()):
         play_danger_df.to_parquet('../working/playlevel/momentum/min1yard/{}-{}-{}-lessthan1y.parquet'.format(year, gamekey, playid))
         end = timer()
         print(end - start)
+
+        os.remove('../working/playlevel/momentum/min1yard/{}-{}-{}-lessthan1y.temp'.format(year, gamekey, playid))
+
     except Exception as e:
         print('didnt work')
         print(e)
+

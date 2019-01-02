@@ -108,6 +108,36 @@ pi['return_yards'] = pi['returned for'].replace('for -2 yards. Lateral to C.Patt
 # Zero return yards for 'no gain'
 pi.loc[pi['no gain'], 'return_yards'] = 0
 
+
+# Punt Distance
+pi['punt_yards_str'] = pi['playdescription'].str.extract('(punts .* yards to)', expand=True).fillna(False)
+
+pi['punt_yards_str_short'] = pi['punt_yards_str'] \
+    .str.replace('punts ','') \
+    .str.replace('yards','') \
+    .str.replace('to','') \
+    .str.replace('No yards', '0')
+
+pi['punt_yards_str'] \
+    = pi['playdescription'].str.extract('(punts .* yards to)', expand=True).fillna(False)
+pi.loc[pi['punt_yards_str'] == False, 'punt_yards_str_short'] = 'No yards'
+pi.loc[5149, 'punt_yards_str_short'] = '64'
+pi.loc[10, 'punt_yards_str_short'] = '40'
+pi.loc[1103, 'punt_yards_str_short'] = '47'
+pi.loc[2918, 'punt_yards_str_short'] = '64'
+pi.loc[5627, 'punt_yards_str_short'] = '62'
+pi.loc[83, 'punt_yards_str_short'] = '63'
+pi.loc[6435, 'punt_yards_str_short'] = '56'
+pi.loc[3650, 'punt_yards_str_short'] = '50'
+pi.loc[4671, 'punt_yards_str_short'] = '44'
+pi.loc[665, 'punt_yards_str_short'] = '57'
+pi.loc[5223, 'punt_yards_str_short'] = '35'
+pi.loc[459, 'punt_yards_str_short'] = '46'
+pi.loc[2480, 'punt_yards_str_short'] = '36'
+pi.loc[4542, 'punt_yards_str_short'] = '22'
+pi.loc[1057, 'punt_yards_str_short'] = '58'
+pi['punt yards'] = pi['punt_yards_str_short'].replace('No yards', 0).astype('int')
+
 pi = pi.drop('count', axis=1)
 
 pi.to_parquet('../working/play_information_detailed.parquet')

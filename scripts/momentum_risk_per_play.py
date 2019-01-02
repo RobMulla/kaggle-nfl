@@ -61,7 +61,6 @@ def calculate_risk(play):
     """
     Calculate the momentum risk
     """
-    #play.f
     play = add_play_physics(play)
     playexpanded = pd.merge(play, play, on=[
                             'season_year', 'gamekey', 'playid', 'time'], suffixes=('', '_partner'))

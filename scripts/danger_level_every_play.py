@@ -1,6 +1,8 @@
 import pandas as pd
 import math
 import numpy as np
+from timeit import default_timer as timer
+
 pd.options.display.max_columns = 100
 
 
@@ -122,7 +124,7 @@ def calculate_3_closest(play):
 vr = pd.read_csv('../input/video_review.csv')
 
 for row in vr.iterrows():
-
+    start = timer()
     year = row[1]['Season_Year']
     gamekey = row[1]['GameKey']
     playid = row[1]['PlayID']
@@ -138,5 +140,14 @@ for row in vr.iterrows():
     play = add_play_physics(play)
 
     play_danger_df = calculate_3_closest(play)
+    # Add play info
+    play_danger_df['Season_Year'] = year
+    play_danger_df['GameKey'] = gamekey
+    play_danger_df['PlayID'] = playid
 
     play_danger_df.to_csv('../working/playlevel/momentum/{}-{}-{}-ClosestPartner.csv'.format(year, gamekey, playid))
+    play_danger_df.to_parquet('../working/playlevel/momentum/{}-{}-{}-ClosestPartner.parquet'.format(year, gamekey, playid))
+    play_danger_df.loc[play_danger_df['distance_to_1'] < 1].to_parquet('../working/playlevel/momentum/{}-{}-{}-ClosestPartner-Lessthan1yard.parquet'.format(year, gamekey, playid))
+    end = timer()
+    print(end - start)
+

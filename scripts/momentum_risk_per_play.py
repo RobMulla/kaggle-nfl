@@ -61,6 +61,7 @@ def calculate_risk(play):
     """
     Calculate the momentum risk
     """
+    #play.f
     play = add_play_physics(play)
     playexpanded = pd.merge(play, play, on=[
                             'season_year', 'gamekey', 'playid', 'time'], suffixes=('', '_partner'))
@@ -82,7 +83,6 @@ def calculate_risk(play):
 pi = pd.read_csv('../input/play_information.csv')
 
 for row in tqdm(pi.iterrows()):
-
     start = timer()
     year = row[1]['Season_Year']
     gamekey = row[1]['GameKey']
@@ -90,7 +90,7 @@ for row in tqdm(pi.iterrows()):
 
     print('Running for {} {} {}'.format(year, gamekey, playid))
     try:
-        exists = os.path.isfile('../working/playlevel/momentum_risk/{}-{}-{}-risk.csv'.format(year, gamekey, playid))
+        exists = os.path.isfile('../working/playlevel/momentum_risk/{}-{}-{}-risk.parquet'.format(year, gamekey, playid))
         if exists:
             print('Results already exist... skipping')
             continue
@@ -105,14 +105,14 @@ for row in tqdm(pi.iterrows()):
                                                                                playid))
         play_processed = calculate_risk(play)
         # Add play info
-        play_processed.to_csv(
-            '../working/playlevel/momentum_risk/{}-{}-{}-risk.csv'.format(
-                year, gamekey, playid),
-            index=False)
+        # play_processed.to_csv(
+        #     '../working/playlevel/momentum_risk/{}-{}-{}-risk.csv'.format(
+        #         year, gamekey, playid),
+        #     index=False)
         play_processed.to_parquet(
             '../working/playlevel/momentum_risk/{}-{}-{}-risk.parquet'.format(year, gamekey, playid))
         end = timer()
-        print(end - start) 
+        print(end - start)
         os.remove('../working/playlevel/momentum_risk/{}-{}-{}-risk.temp'.format(year, gamekey, playid))
     except Exception as e:
         print('didnt work')
